@@ -1,4 +1,4 @@
-#N canvas 277 68 909 556 10;
+#N canvas 277 68 892 556 10;
 #X obj 89 27 dumpOSC 6011;
 #X text 253 82 info about minibees;
 #X obj 281 103 print;
@@ -15,36 +15,36 @@
 #X floatatom 391 211 5 0 0 0 - - -;
 #X floatatom 435 212 5 0 0 0 - - -;
 #X floatatom 480 214 5 0 0 0 - - -;
-#X obj 238 505 sendOSC 57600;
-#X floatatom 328 382 5 0 0 0 - - -;
-#X obj 410 519 print;
-#X obj 308 283 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 242 617 sendOSC 57600;
+#X floatatom 332 494 5 0 0 0 - - -;
+#X obj 414 631 print;
+#X obj 312 395 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 213 377 1;
-#X text 212 349 minibee id;
-#X floatatom 246 401 5 0 0 0 - - -;
-#X msg 8 356 connect localhost 57600;
-#X msg 248 375 2;
-#X text 339 314 data to send to pwm;
-#X obj 341 339 hsl 128 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+#X msg 217 489 1;
+#X text 216 461 minibee id;
+#X floatatom 250 513 5 0 0 0 - - -;
+#X msg 12 468 connect localhost 57600;
+#X msg 252 487 2;
+#X text 343 426 data to send to pwm;
+#X obj 345 451 hsl 128 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 334 358 int;
-#X obj 287 388 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 338 470 int;
+#X obj 291 500 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 54 277 SENDING DATA TO A MINIBEE;
-#X obj 539 329 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X text 58 389 SENDING DATA TO A MINIBEE;
+#X obj 543 441 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 573 332 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 577 444 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 608 330 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 612 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 539 380 5 0 0 0 - - -;
-#X floatatom 581 381 5 0 0 0 - - -;
-#X floatatom 626 381 5 0 0 0 - - -;
-#X obj 246 434 pack 0 0 0 0 0 0 0 0 0 0;
-#X msg 256 463 send /minibee/output \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8
+#X floatatom 543 492 5 0 0 0 - - -;
+#X floatatom 585 493 5 0 0 0 - - -;
+#X floatatom 630 493 5 0 0 0 - - -;
+#X obj 250 546 pack 0 0 0 0 0 0 0 0 0 0;
+#X msg 260 575 send /minibee/output \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8
 \$9 \$10;
-#X text 546 301 data to send to digital out;
+#X text 550 413 data to send to digital out;
 #X obj 88 58 route /minibee/data /minibee/info /minibee/status;
 #X obj 474 103 print;
 #X text 446 82 status of minibees;
@@ -53,10 +53,14 @@
 #X floatatom 197 213 5 0 0 0 - - -;
 #X floatatom 242 215 5 0 0 0 - - -;
 #X floatatom 286 215 5 0 0 0 - - -;
+#X obj 651 114 vsl 15 128 0 255 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 651 267 timeroll;
 #X connect 0 0 38 0;
 #X connect 6 0 38 0;
 #X connect 7 0 41 0;
 #X connect 7 1 11 0;
+#X connect 8 0 46 0;
 #X connect 11 0 12 0;
 #X connect 11 1 13 0;
 #X connect 11 2 14 0;
@@ -95,3 +99,4 @@
 #X connect 41 4 43 0;
 #X connect 41 5 44 0;
 #X connect 41 6 45 0;
+#X connect 46 0 47 0;
