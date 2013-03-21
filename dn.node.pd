@@ -1,4 +1,4 @@
-#N canvas 119 49 1090 582 10;
+#N canvas 113 43 1082 652 10;
 #X declare -lib moocow;
 #X declare -lib list-abs;
 #X declare -lib mrpeach;
@@ -45,15 +45,15 @@
 #X obj 539 160 route /unsubscribed/node;
 #X obj 727 177 route /datanetwork/announce;
 #X obj 539 257 sel 1;
-#X obj 565 518 prepend set;
+#X obj 568 568 prepend set;
 #X obj 562 390 t a a;
 #X obj 565 445 zl join;
-#X obj 565 494 prepend connect;
+#X obj 565 471 prepend connect;
 #X obj 565 365 pv dn-host;
 #X obj 287 467 prepend send;
 #X obj 36 36 s senseworld.local;
 #X obj 36 62 r senseworld.local;
-#X msg 565 541 connect 127.0.0.1;
+#X msg 568 592 connect 127.0.0.1 57120;
 #X text 81 140 data;
 #X text 529 27 !!!! The parent patcher needs an object called "pv dn-host
 <IP of host>" !!!!;
@@ -65,11 +65,11 @@
 #X obj 287 322 prepend /subscribe/node 6010;
 #X msg 186 302 /pong 6010 PdClient;
 #X msg 21 464 /unregister 6010 PdClient;
-#X obj 390 530 print NODE_\$0;
+#X obj 417 625 print NODE_\$0;
 #X obj 145 221 r \$0_nodeName;
 #X obj 145 245 prepend set /pong 6010;
-#X obj 380 410 route send;
-#X obj 408 456 route /pong;
+#X obj 399 557 route send;
+#X obj 399 583 route /pong;
 #X text 529 73 Joseph Malloch & Thibodeau / IDMIL 2009 / www.idmil.org
 ;
 #X obj 22 230 i \$2;
@@ -90,13 +90,20 @@
 #X obj 82 351 prepend xxx;
 #X obj 164 332 r \$0_nodeName;
 #X obj 164 355 prepend set;
-#X obj 281 546 delay 1000;
-#X obj 504 534 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 460 516 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 287 491 sendOSC 57120;
-#X obj 684 422 print retrieving port;
-#X obj 707 469 print found port;
+#X obj 282 546 delay 500;
+#X obj 604 503 print sending connect;
+#X obj 216 593 print sending register;
+#X obj 889 341 57120;
+#X obj 889 370 s senseworld.defaultport;
+#X obj 514 419 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 667 429 this should actually wait for dn.netport to retrieve
+the port \, before continuing...;
 #X connect 0 0 57 0;
+#X connect 0 0 73 0;
 #X connect 2 0 3 0;
 #X connect 3 0 43 0;
 #X connect 5 0 56 0;
@@ -112,7 +119,7 @@
 #X connect 15 0 14 0;
 #X connect 16 0 14 0;
 #X connect 18 0 27 1;
-#X connect 18 0 72 0;
+#X connect 18 0 75 0;
 #X connect 19 0 12 0;
 #X connect 19 1 20 0;
 #X connect 20 0 9 0;
@@ -127,15 +134,15 @@
 #X connect 25 0 33 0;
 #X connect 26 0 27 0;
 #X connect 26 1 18 0;
-#X connect 26 1 71 0;
 #X connect 27 0 28 0;
 #X connect 28 0 25 0;
 #X connect 28 0 44 0;
+#X connect 28 0 68 0;
 #X connect 28 0 69 0;
-#X connect 28 0 70 0;
+#X connect 28 0 71 0;
 #X connect 29 0 26 0;
 #X connect 30 0 47 0;
-#X connect 30 0 70 0;
+#X connect 30 0 69 0;
 #X connect 32 0 19 0;
 #X connect 36 0 40 0;
 #X connect 37 0 11 0;
@@ -158,6 +165,7 @@
 #X connect 54 0 51 1;
 #X connect 55 0 56 0;
 #X connect 56 0 30 0;
+#X connect 56 0 72 0;
 #X connect 57 0 58 0;
 #X connect 58 0 1 0;
 #X connect 59 0 24 0;
@@ -169,6 +177,8 @@
 #X connect 65 0 39 0;
 #X connect 66 0 67 0;
 #X connect 67 0 65 0;
-#X connect 68 0 56 0;
-#X connect 69 0 68 0;
-#X connect 70 0 55 0;
+#X connect 68 0 70 0;
+#X connect 69 0 55 0;
+#X connect 70 0 56 0;
+#X connect 73 0 74 0;
+#X connect 75 0 27 0;
