@@ -28,3 +28,8 @@ This patch shows a simple example of how to interact with minihiveosc.py for int
 
 ---
 (c) 2012 - Marije Baalman
+
+---- ACKNOWLEDGEMENTS ---
+Using http_get from:
+https://github.com/danomatika/rc-patches/tree/master/extra
+Copyright (c) Dan Wilcox 2007, 2011-2012
